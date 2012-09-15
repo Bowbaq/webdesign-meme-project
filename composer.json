@@ -1,0 +1,39 @@
+{
+    "name": "Odalisk",
+    "description": "Open DAta LIve Score checKing ",
+    "repositories": {
+        "knp-unofficial": {
+            "type": "package",
+            "package": {
+                "name": "odalisk/knpradbundle",
+                "version": "1.1",
+                "source": {
+                    "url": "git://github.com/odalisk/KnpRadBundle.git",
+                    "type": "git",
+                    "reference": "origin/master"
+                },
+                "autoload": {
+                    "psr-0": { "Knp\\Bundle\\RadBundle": "" }
+                },
+                "target-dir": "Knp/Bundle/RadBundle",
+                "bin": ["bin/generate-rad-project"]
+            }
+        }
+    },
+    "require": {
+        "php":  ">=5.3.2",
+        "symfony/symfony":  ">=2.0.10,<2.1.0",
+        "symfony/assetic-bundle":  "2.0.x-dev",
+        
+        "sensio/generator-bundle": "2.0.*",
+        
+        "twig/extensions":  "dev-master",
+        
+        "doctrine/orm": "2.1.x-dev",
+        "stof/doctrine-extensions-bundle": "1.0.2",
+        
+        "odalisk/knpradbundle": "1.1",
+        
+        "knplabs/knp-menu-bundle": "1.1.0"
+    }
+}

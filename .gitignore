@@ -1,0 +1,14 @@
+app/kernel.custom.yml
+cache/*
+logs/*
+vendor/*
+web/css/*
+web/js/*
+web/bundles/*
+composer.lock
+!.gitkeep
+!vendor/assets
+.DS_Store
+*.php~
+web/bundles/app/css/style.less
+web/bundles/app/js

@@ -1,0 +1,39 @@
+homepage: # newest jokes
+   pattern:    /
+   defaults:   { _controller: App:App:newest }
+
+top:
+    pattern: /top
+    defaults:  { _controller: App:App:top }
+
+random:
+    pattern: /random
+    defaults:  { _controller: App:App:random }
+
+submit:
+    pattern: /submit
+    defaults:  { _controller: App:App:submit }
+
+about:
+    pattern: /about
+    defaults:  { _controller: App:App:about }
+
+show:
+    pattern: /show/{joke_id}
+    defaults:  { _controller: App:App:show }
+    requirements:
+        joke_id:  \d+
+        
+upvote:
+    pattern: /vote/up/{joke_id}
+    defaults:  { _controller: App:App:voteup }
+    requirements:
+        joke_id:  \d+
+        # _method:  POST
+
+downvote:
+    pattern: /vote/down/{joke_id}
+    defaults:  { _controller: App:App:votedown }
+    requirements:
+        joke_id:  \d+
+        # _method:  POST

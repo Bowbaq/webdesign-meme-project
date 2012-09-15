@@ -1,0 +1,5 @@
+{% extends "App::layout.html.twig" %}
+
+{% block nav_content %}
+    {{ knp_menu_render(knp_menu_get('App:Builder:mainMenu', [], { 'active': 'about' })) }}
+{% endblock %}

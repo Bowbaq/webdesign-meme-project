@@ -1,0 +1,22 @@
+{% autoescape %}
+    <div class="joke-item">
+        <div class="joke-show-link"><a href="/show/{{ joke.id }}">#{{ joke.id }}</a></div>
+        {% for who in joke.whos %}
+            <p class="joke-knockknock">Knock knock!</p>
+            <p class="joke-who-there">Who's there?</p>
+            <p class="joke-who-answer">{{ who }}</p>
+            <p class="joke-who-who">{{ who }} who?</p>
+        {% endfor %}
+        <p class="joke-punchline">{{ joke.punchline }}</p>
+        <div class="joke-controls">
+            <div class="addthis_toolbox addthis_default_style" addthis:url="http://meme.maxime-bury.fr/show/{{joke.id}}">
+                <a class="addthis_button_google_plusone plus-one-button" g:plusone:size="medium"></a> 
+                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                <a class="addthis_button_tweet"></a>
+            </div>
+            <span class="joke-author-date">Posted by @{{joke.author}} at {{joke.createdAt|date("H:i \\o\\n m/d/Y", "America/New_York")}}</span>
+            <a class="joke-knock-up" data-joke-id="{{joke.id}}">Knock up (+{{joke.upVotes}})</a>
+            <a class="joke-knock-down" data-joke-id="{{joke.id}}">Knock down (-{{joke.downVotes}})</a>
+        </div>
+    </div>
+{% endautoescape %}

@@ -1,0 +1,11 @@
+{% extends "App::layout.html.twig" %}
+
+{% block nav_content %}
+    {{ knp_menu_render(knp_menu_get('App:Builder:mainMenu', [], { 'active': 'random' })) }}
+{% endblock %}
+
+{% block content %}
+    <a href="/random" id="joke-random-link">
+        {% include "App:App:Util/joke-item.html.twig" with { 'joke': joke} %}
+    </a>
+{% endblock %}

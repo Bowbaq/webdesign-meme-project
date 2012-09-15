@@ -1,0 +1,100 @@
+{% extends "App::layout.html.twig" %}
+
+{% block nav_content %}
+    {{ knp_menu_render(knp_menu_get('App:Builder:mainMenu', [], { 'active': 'submit' })) }}
+{% endblock %}
+
+{% block content %}
+
+<form action="/submit" method="post" accept-charset="utf-8">
+    <div>
+        <label for="author">Author</label>
+        <div>
+            <input type="text" name="author" value="" id="author" placeholder="Anonymous" required="required">
+        </div>
+    </div>
+    
+    <div class="joke-block">
+        <p>Knock knock!</p>
+        <p>Who's there?</p>
+    
+        <div>
+            <div>
+                <input type="text" name="who[]" value="" id="who_0" placeholder="Banana">
+            </div>
+        </div>
+        <p><span id="span_who_0">_______________</span> who?</p>
+    </div>
+    
+    <div id="form-controls">
+        <input type="submit" value="Add punchline" id="punchline">
+        <input type="submit" value="Add Knock knock" id="knockknock">
+        <input type="submit" value="Submit" disabled="disabled" id="save-form">
+    </div>
+</form>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" charset="utf-8">
+        var hasPunchLine = false;
+        var who = 1;
+        
+        $.fn.mirror = function (selector) {
+            return this.each(function () {
+                var $this = $(this);
+                var $selector = $(selector);
+                
+                $this.bind('keyup keypress blur', function () {
+                    var fill = '_______________';
+                    var val = $this.val();
+                    
+                    $selector.text(val + fill.substr(0, fill.length - val.length));
+                });
+            });
+        };
+        
+        $('#who_0').mirror('#span_who_0');
+    
+        $('#punchline').click(function() {
+            if (!hasPunchLine) {
+                hasPunchLine = true;
+                
+                var block = $('<div><div><input type="text" name="punchline" value="" placeholder="Punchline" required="required"></div></div>').hide();
+                
+                $('#form-controls').before(block);
+                block.show('slow');
+                
+                $('#punchline').attr('disabled', 'disabled');
+                $('#knockknock').attr('disabled', 'disabled');
+                $('#save-form').removeAttr('disabled');
+            };
+
+            return false;
+        });
+        
+        $('#knockknock').click(function() {
+            var block = $(
+                '<div class="joke-block">'
+                +   '<p>Knock knock!</p>'
+                +   '<p>Who\'s there?</p>'
+                +   '<div>'
+                +       '<div>'
+                +           '<input type="text" name="who[]" value="" id="who_' + who + '" placeholder="Banana" required="required">'
+                +       '</div>'
+                +   '</div>'
+                +   '<p><span id="span_who_' + who + '">_______________</span> who?</p>'
+                + '</div>'
+            ).hide();
+            
+            $('#form-controls').before(block);
+            block.show('slow');
+        
+            $('#who_' + who).mirror('#span_who_' + who);
+            
+            who++
+            
+            return false
+        });
+    </script>
+{% endblock %}
