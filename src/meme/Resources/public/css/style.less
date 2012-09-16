@@ -1,24 +1,40 @@
 @import "../../../../../vendor/assets/css/libs/bootstrap.less";
 
 body {
-    padding-top: 60px;
+    padding-top: 40px;
     
-/*    background-image: url('/bundles/app/img/dark_wood.png');*/
-}
-
-.joke-unit {
-    background-color: @heroUnitBackground;
+    background-image: url('/bundles/app/img/dark_wood.png');
     
-    .border-radius(6px);
-    
-    margin-bottom: 20px;
-    padding: 10px;
-}
-
-.hidden {
-    display: none;
-}
-
-.plus-one-button > div {
-    width: 60px !important;
+    .main-container {
+        padding: 20px 15px 0px 15px;
+        
+        background-image: url('/bundles/app/img/wash-white.png');
+        
+        .joke-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            
+            .border-radius(6px);
+            
+            background-color: @heroUnitBackground;
+            
+            .joke-controls {
+                height: 20px;
+                
+                .addthis_default_style {
+                    height: 20px;
+                    min-width: 300px;
+                }
+                
+                .joke-who-when {
+                    display: inline-block;
+                    margin: 0px auto;
+                }
+                
+                .plus-one-button > div {
+                    width: 60px !important;
+                }
+            }
+        }
+    }
 }

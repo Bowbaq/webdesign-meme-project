@@ -1,9 +1,29 @@
-/*
- *= require libs/bootstrap
- */
+@import "../../../../../vendor/assets/css/libs/bootstrap.less";
 
 body {
     padding-top: 60px;
     
-    background-image: url('img/dark_wood.png');
+    background-image: url('/bundles/app/img/dark_wood.png');
+    
+    .container {
+        padding: 20px 15px 0px 15px;
+        background-image: url('/bundles/app/img/wash-white.png');
+    }
+}
+
+.navbar-inner > .container {
+    padding: 0px 15px;;
+}
+
+.joke-item {
+    background-color: @heroUnitBackground;
+    
+    .border-radius(6px);
+    
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.plus-one-button > div {
+    width: 60px !important;
 }
