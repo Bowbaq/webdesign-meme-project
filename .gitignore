@@ -13,3 +13,4 @@ composer.lock
 web/bundles/app/css/*
 web/bundles/app/js/*
 web/.htaccess
+web/bundles/app/fonts/*

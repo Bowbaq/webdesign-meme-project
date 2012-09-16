@@ -1,23 +1,80 @@
 @import "../../../../../vendor/assets/css/libs/bootstrap.less";
 
+@font-face {
+    font-family: 'JuneBugRegular';
+    src: url('/bundles/app/fonts/JUNEBUG_-webfont.eot');
+    src: url('/bundles/app/fonts/JUNEBUG_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/app/fonts/JUNEBUG_-webfont.woff') format('woff'),
+         url('/bundles/app/fonts/JUNEBUG_-webfont.ttf') format('truetype'),
+         url('/bundles/app/fonts/JUNEBUG_-webfont.svg#JuneBugRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.navbar .brand {
+    font-family: JuneBugRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: lowercase;
+    letter-spacing: 0;
+}
+
+.navbar .nav > .active > a, 
+.navbar .nav > .active > a:hover, 
+.navbar .nav > .active > a:focus {
+    .box-shadow(none);
+    background: none;
+}
+
+.navbar .nav > li {
+    position: relative;
+    
+    > a {
+        font-size: 16px;
+        font-weight: bold;
+        color: #BBB;
+    }
+    
+    &.active:after {
+    	content:"";
+    	
+    	position: absolute;
+        bottom: 7px;
+        
+        display:block;
+        
+        .border-radius(3px);
+        
+        .size(5px, 70%);
+        
+        margin-left: 15%;
+        
+        background-image: url('/bundles/app/img/menu-highlight.png');
+    }
+}
+
 body {
     padding-top: 40px;
     
-    background-image: url('/bundles/app/img/dark_wood.png');
+    /*background-image: url('/bundles/app/img/dark_wood.png');*/
+    background-image: url('/bundles/app/img/purty_wood.png');
     
     .main-container {
         padding: 20px 15px 0px 15px;
         
-        background-image: url('/bundles/app/img/wash-white.png');
+/*        background-image: url('/bundles/app/img/wash-white.png');
+*/        
+        .border-bottom-radius(10px);
         
         .joke-item {
             margin-bottom: 20px;
             padding: 15px;
             
-            .border-radius(6px);
+            .border-radius(2px);
+            .box-shadow(1px 1px 2px fadeout(@black, 50%), inset -1px -1px 0 fadeout(@white, 50%));
             
-            background-color: @heroUnitBackground;
-            
+            background-color: white;
+/*            background-color: @heroUnitBackground;
+*/            
             .joke-controls {
                 height: 20px;
                 
@@ -29,6 +86,10 @@ body {
                 .joke-who-when {
                     display: inline-block;
                     margin: 0px auto;
+                    
+                    .joke-author {
+                        font-style: italic;
+                    }
                 }
                 
                 .plus-one-button > div {
@@ -37,27 +98,26 @@ body {
             }
             
             .bubble {
-/*                position:relative;
-*/            	
-            	
             	padding:15px;
             	
             	.border-radius(10px);
-            	            	
-/*              #gradient > .vertical(#f9d835, #f3961c);
-*/            }
+            }
             
             .bubble.left {
             	margin-left:50px;
             	
-            	background: darken(@heroUnitBackground, 10%);
+            	#gradient > .vertical(darken(@heroUnitBackground, 15%), darken(@heroUnitBackground, 10%));
             }
             
             .bubble.right {
                 margin-right:50px;
                 
-                background: darken(@heroUnitBackground, 20%);
+                #gradient > .vertical(darken(@heroUnitBackground, 25%), darken(@heroUnitBackground, 20%));
             }
         }
     }
+}
+
+.hidden {
+    display: none;
 }

@@ -1,13 +1,13 @@
 {% autoescape %}
-    <div class="joke-item">
+    <div class="joke-item" id="joke-{{ joke.id }}">
         <div class="joke-show-link pull-right"><a href="/show/{{ joke.id }}">#{{ joke.id }}</a></div>
         {% for who in joke.whos %}
-            <p class="joke-knockknock bubble right">Knock knock!</p>
-            <p class="joke-who-there bubble left">Who's there?</p>
-            <p class="joke-who-answer bubble right">{{ who }}</p>
-            <p class="joke-who-who bubble left">{{ who }} who?</p>
+            <p class="joke-knockknock bubble right {% if loop.index > 1 %}hidden{% else %}first-bubble{% endif %}">Knock knock!</p>
+            <p class="joke-who-there bubble left hidden">Who's there?</p>
+            <p class="joke-who-answer bubble right hidden">{{ who }}</p>
+            <p class="joke-who-who bubble left hidden">{{ who }} who?</p>
         {% endfor %}
-        <p class="joke-punchline">{{ joke.punchline }}</p>
+        <p class="joke-punchline bubble hidden">{{ joke.punchline }}</p>
         <div class="joke-controls">
             <div class="addthis_toolbox addthis_default_style pull-left" addthis:url="http://meme.maxime-bury.fr/show/{{joke.id}}">
                 <a class="addthis_button_google_plusone plus-one-button" g:plusone:size="medium"></a> 
@@ -15,8 +15,8 @@
                 <a class="addthis_button_tweet"></a>
             </div>
             <div class="joke-who-when clearfix">
-                <span class="joke-author">Posted by @{{joke.author}}</span>
-                <span class="joke-date"> at {{joke.createdAt|date("H:i \\o\\n m/d/Y", "America/New_York")}}</span>
+                Posted by <span class="joke-author">@{{joke.author}}</span>
+                at <span class="joke-date">{{joke.createdAt|date("H:i A - m/d/Y", "America/New_York")}}</span>
             </div>
             <div class="joke-right-controls pull-right">
                 <a class="joke-knock-up" data-joke-id="{{joke.id}}">Knock up (+{{joke.upVotes}})</a>

@@ -38,3 +38,9 @@ $('.joke-knock-down').click(function() {
         }
     });
 });
+
+$('.first-bubble').click(function() {
+    $(this).next('p').show('slow', function showNext() {
+        $(this).next('p').show('slow', showNext);
+    });
+});
