@@ -12,3 +12,8 @@ composer.lock
 *.php~
 web/bundles/app/css/style.less
 web/bundles/app/js
+web/css/baf8ce3.css
+web/css/baf8ce3_part_1_bootstrap_1.css
+web/css/baf8ce3_part_1_style_1.css
+web/css/baf8ce3_part_1_style_2.css
+web/.htaccess

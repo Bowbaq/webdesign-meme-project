@@ -2,10 +2,10 @@
     <div class="joke-item">
         <div class="joke-show-link pull-right"><a href="/show/{{ joke.id }}">#{{ joke.id }}</a></div>
         {% for who in joke.whos %}
-            <p class="joke-knockknock">Knock knock!</p>
-            <p class="joke-who-there">Who's there?</p>
-            <p class="joke-who-answer">{{ who }}</p>
-            <p class="joke-who-who">{{ who }} who?</p>
+            <p class="joke-knockknock bubble right">Knock knock!</p>
+            <p class="joke-who-there bubble left">Who's there?</p>
+            <p class="joke-who-answer bubble right">{{ who }}</p>
+            <p class="joke-who-who bubble left">{{ who }} who?</p>
         {% endfor %}
         <p class="joke-punchline">{{ joke.punchline }}</p>
         <div class="joke-controls">

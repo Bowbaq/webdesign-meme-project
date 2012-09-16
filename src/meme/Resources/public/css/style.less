@@ -12,7 +12,7 @@ body {
         
         .joke-item {
             margin-bottom: 20px;
-            padding: 10px;
+            padding: 15px;
             
             .border-radius(6px);
             
@@ -34,6 +34,28 @@ body {
                 .plus-one-button > div {
                     width: 60px !important;
                 }
+            }
+            
+            .bubble {
+                position:relative;
+            	
+            	padding:15px;
+            	
+            	.border-radius(10px);
+            	            	
+/*              #gradient > .vertical(#f9d835, #f3961c);
+*/            }
+            
+            .bubble.left {
+            	margin-left:50px;
+            	
+            	background: darken(@heroUnitBackground, 10%);
+            }
+            
+            .bubble.right {
+                margin-right:50px;
+                
+                background: darken(@heroUnitBackground, 20%);
             }
         }
     }
