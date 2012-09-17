@@ -8,7 +8,7 @@
 
 <div id="joke-form">
     <form action="/submit" method="post" accept-charset="utf-8">
-        <div>
+        <div id="author-block">
             <label for="author">Author</label>
             <div>
                 <input type="text" name="author" value="" id="author" placeholder="Anonymous">
@@ -24,13 +24,13 @@
                     <input type="text" name="who[]" value="" id="who_0" placeholder="Banana">
                 </div>
             </div>
-            <p><span id="span_who_0">_______________</span> who?</p>
+            <p><span id="span_who_0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> who?</p>
         </div>
     
         <div id="form-controls">
-            <input type="submit" value="Add punchline" id="punchline">
-            <input type="submit" value="Add Knock knock" id="knockknock">
-            <input type="submit" value="Submit" disabled="disabled" id="save-form">
+            <input class="btn" type="submit" value="Add Knock knock" id="knockknock-button">
+            <input class="btn" type="submit" value="Add punchline" id="punchline-button">
+            <input class="btn" type="submit" value="Submit" disabled="disabled" id="save-form-button">
         </div>
     </form> 
 </div>
@@ -48,34 +48,34 @@
                 var $selector = $(selector);
                 
                 $this.bind('keyup keypress blur', function () {
-                    var fill = '_______________';
+                    var fill = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                     var val = $this.val();
                     
-                    $selector.text(val + fill.substr(0, fill.length - val.length));
+                    $selector.html(val + fill.substr(0, (15 - val.length) * 6));
                 });
             });
         };
         
         $('#who_0').mirror('#span_who_0');
     
-        $('#punchline').click(function() {
+        $('#punchline-button').click(function() {
             if (!hasPunchLine) {
                 hasPunchLine = true;
                 
-                var block = $('<div><div><input type="text" name="punchline" value="" placeholder="Punchline" required="required"></div></div>').hide();
+                var block = $('<div id="punchline"><input type="text" name="punchline" value="" placeholder="Punchline" required="required"></div>').hide();
                 
                 $('#form-controls').before(block);
                 block.show('slow');
                 
-                $('#punchline').attr('disabled', 'disabled');
-                $('#knockknock').attr('disabled', 'disabled');
-                $('#save-form').removeAttr('disabled');
+                $('#punchline-button').attr('disabled', 'disabled');
+                $('#knockknock-button').attr('disabled', 'disabled');
+                $('#save-form-button').removeAttr('disabled');
             };
 
             return false;
         });
         
-        $('#knockknock').click(function() {
+        $('#knockknock-button').click(function() {
             var block = $(
                 '<div class="joke-block">'
                 +   '<p>Knock knock!</p>'
@@ -85,7 +85,7 @@
                 +           '<input type="text" name="who[]" value="" id="who_' + who + '" placeholder="Banana" required="required">'
                 +       '</div>'
                 +   '</div>'
-                +   '<p><span id="span_who_' + who + '">_______________</span> who?</p>'
+                +   '<p><span id="span_who_' + who + '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> who?</p>'
                 + '</div>'
             ).hide();
             

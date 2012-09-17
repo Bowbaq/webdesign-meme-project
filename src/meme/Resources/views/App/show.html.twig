@@ -5,5 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    {% include "App:App:Util/joke-item.html.twig" with { 'joke': joke} %}
+    <div id="joke-random">
+        {% include "App:App:Util/joke-item.html.twig" with { 'joke': joke} %}
+    </div>
 {% endblock %}

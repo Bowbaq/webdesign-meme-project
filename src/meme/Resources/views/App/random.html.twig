@@ -7,6 +7,6 @@
 {% block content %}
     <div id="joke-random">
         {% include "App:App:Util/joke-item.html.twig" with { 'joke': joke } %}
-        <a href="/random" id="joke-random-next">Next &rarr;	</a>
+        <a href="/random" class="btn">Next &rarr;</a>
     </div>
 {% endblock %}

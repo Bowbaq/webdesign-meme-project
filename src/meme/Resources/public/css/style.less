@@ -5,7 +5,7 @@
 @import "navbar.less";
 
 
-@jokeWidth:   410px;
+@jokeWidth:   405px;
 @jokePadding: 10px;
 
 body {
@@ -21,28 +21,16 @@ body {
         .left-container, .right-container {
             float: left;
             width: @jokeWidth + (2 * @jokePadding);
+            margin-left: 35px;
+        }
+        
+        .right-container {
             margin-left: 20px;
+            margin-right: 35px;
         }
         
         #joke-random {
-            width: @jokeWidth;
-            margin: 0 auto;
-        }
-        
-        #joke-random-next {
-            display:block;
-            text-decoration: none;
-            text-align: center;
-            line-height: 20px;
-            color: @grayDark;
-            
-            .border-radius(2px);
-            .box-shadow(1px 1px 2px fadeout(@black, 50%), inset -1px -1px 0 fadeout(@white, 50%));
-            
-            background-color: white;
-            
-            .size(20px, 60px);
-            
+            width: @jokeWidth + (2 * @jokePadding);
             margin: 0 auto;
         }
         
@@ -57,6 +45,24 @@ body {
             color: @grayDark;
             
             padding: 15px;
+            
+            form {
+                margin-bottom: 0;
+            }
+            
+            .joke-block {
+                border-top: 1px solid #E8E8E8;
+                padding-top: 10px; 
+            }
+            
+            #punchline  {
+                border-top: 1px solid #E8E8E8;
+                padding-top: 10px;
+                
+                input {
+                    width: @jokeWidth - @jokePadding;
+                }
+            }
         }
         
         .joke-item {
@@ -68,6 +74,8 @@ body {
             background-color: white;
             
             .joke-topbar {
+                position: relative;
+                
                 height: 20px;
                 padding: 3px @jokePadding 3px @jokePadding;
                 
@@ -77,54 +85,60 @@ body {
                     display: inline-block;
                 }
                 
-                .joke-knock-up {
+                .joke-knock-up,  .joke-knock-up-score {
                     color: green;
                 }
                 
-                .joke-knock-down {
+                .joke-knock-down, .joke-knock-down-score {
                     color: red;
+                }
+                
+                &.failure:after {
+                    position: absolute;
+                    top: 3px;
+                    right: 10px;
+                    
+                    .size(20px, @jokeWidth);
+
+                    background-color: white;
+                    opacity: 1;
+                    
+                    content: "C'mon, you didn't really think you could vote twice did you ?";
+                    color: darken(@red, 10%);
+                    
+                    .transition(opacity 1s ease-in);                
+                }
+                
+                &.success:after {
+                    position: absolute;
+                    top: 3px;
+                    right: 10px;
+                    
+                    .size(20px, @jokeWidth);
+
+                    background-color: white;
+                    opacity: 1;
+                    
+                    content: "You cheeky bugger, you knocked up another !";
+                    color: darken(@green, 10%);
+                    
+                    .transition(opacity 1s ease-in);                
                 }
             }
             
             .joke-body {
                 position: relative;
+                height: 71px;
                                 
                 margin: 0 auto;
                 padding: 0 @jokePadding 0 @jokePadding;
-                
-                height: 30px;
-                .transition(height 1s ease);
-                
+                                                
                 color: @grayDark;
                 
                 overflow: hidden;
                 
-                &.click-me:after {
-                    position: absolute;
-                    top: 0px;
-                    right: 10px;
-                    
-                    .size(100%, @jokeWidth);
-                                        
-                    content: "Click me :)";
-                    color: @grayLight;
-                    text-align: right;
-                    line-height: 31px;
-                    
-                    opacity: 0;
-                    .transition(opacity .25s ease-in-out);
-                }
-                
-                &.click-me:hover:after {
-                    opacity: 1;
-                }
-                
                 &.inner {
                     overflow: auto;
-                }
-                
-                &.transitions {
-                    .transition(all 1s ease-in-out);
                 }
                 
                 .bubble {

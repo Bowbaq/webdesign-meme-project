@@ -2,20 +2,20 @@
     <div class="joke-item" id="joke-{{ joke.id }}">
         <div class="joke-topbar">
             <div class="joke-vote">
-                <a class="joke-knock-up" data-joke-id="{{joke.id}}">Knock up (+{{joke.upVotes}})</a>
-                <a class="joke-knock-down" data-joke-id="{{joke.id}}">Knock down (-{{joke.downVotes}})</a>
+                <a class="joke-knock-up" data-joke-id="{{joke.id}}">Knock up</a><span class="joke-knock-up-score"> (+{{joke.upVotes}})</span>
+                <a class="joke-knock-down" data-joke-id="{{joke.id}}">Knock down</a><span class="joke-knock-down-score"> (-{{joke.downVotes}})</span>
             </div>
             <a href="/show/{{ joke.id }}" class="pull-right">#{{ joke.id }}</a>
         </div>
-        <div class="joke-body click-me closed">
+        <div class="joke-body">
             <div class="inner">
                 {% for who in joke.whos %}
-                    <p class="joke-knockknock bubble left {% if loop.index == 0 %}first-bubble{% endif %}">
+                    <p class="joke-knockknock bubble left {% if loop.index == 1 %}first-bubble{% endif %}">
                         Knock knock!
                     </p>
-                    <p class="joke-who-there bubble right">Who's there?</p>
+                    <p class="joke-who-there bubble right"><span class="btn show-more">Who's there?</span></p>
                     <p class="joke-who-answer bubble left">{{ who }}</p>
-                    <p class="joke-who-who bubble right">{{ who }} who?</p>
+                    <p class="joke-who-who bubble right"><span class="btn show-more">{{ who }} who?</span></p>
                 {% endfor %}
                 <p class="joke-punchline bubble left">{{ joke.punchline }}</p>
             </div>
