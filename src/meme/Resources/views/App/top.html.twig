@@ -4,8 +4,17 @@
     {{ knp_menu_render(knp_menu_get('App:Builder:mainMenu', [], { 'active': 'top' })) }}
 {% endblock %}
 
-{% block content %}
+{% block left %}
     {% for joke in jokes %}
-        {% include "App:App:Util/joke-item.html.twig" with { 'joke': joke} %}
+        {% if loop.index is odd %}
+            {% include "App:App:Util/joke-item.html.twig" with { 'joke': joke } %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+{% block right %}
+    {% for joke in jokes %}
+        {% if loop.index is even %}
+            {% include "App:App:Util/joke-item.html.twig" with { 'joke': joke } %}
+        {% endif %}
     {% endfor %}
 {% endblock %}

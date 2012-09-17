@@ -6,32 +6,34 @@
 
 {% block content %}
 
-<form action="/submit" method="post" accept-charset="utf-8">
-    <div>
-        <label for="author">Author</label>
+<div id="joke-form">
+    <form action="/submit" method="post" accept-charset="utf-8">
         <div>
-            <input type="text" name="author" value="" id="author" placeholder="Anonymous">
-        </div>
-    </div>
-    
-    <div class="joke-block">
-        <p>Knock knock!</p>
-        <p>Who's there?</p>
-    
-        <div>
+            <label for="author">Author</label>
             <div>
-                <input type="text" name="who[]" value="" id="who_0" placeholder="Banana">
+                <input type="text" name="author" value="" id="author" placeholder="Anonymous">
             </div>
         </div>
-        <p><span id="span_who_0">_______________</span> who?</p>
-    </div>
     
-    <div id="form-controls">
-        <input type="submit" value="Add punchline" id="punchline">
-        <input type="submit" value="Add Knock knock" id="knockknock">
-        <input type="submit" value="Submit" disabled="disabled" id="save-form">
-    </div>
-</form>
+        <div class="joke-block">
+            <p>Knock knock!</p>
+            <p>Who's there?</p>
+    
+            <div>
+                <div>
+                    <input type="text" name="who[]" value="" id="who_0" placeholder="Banana">
+                </div>
+            </div>
+            <p><span id="span_who_0">_______________</span> who?</p>
+        </div>
+    
+        <div id="form-controls">
+            <input type="submit" value="Add punchline" id="punchline">
+            <input type="submit" value="Add Knock knock" id="knockknock">
+            <input type="submit" value="Submit" disabled="disabled" id="save-form">
+        </div>
+    </form> 
+</div>
 {% endblock %}
 
 {% block javascripts %}

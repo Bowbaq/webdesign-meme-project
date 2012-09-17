@@ -1,0 +1,39 @@
+.navbar .brand {
+    font-family: JuneBugRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: lowercase;
+    letter-spacing: 0;
+}
+
+.navbar .nav > .active > a, 
+.navbar .nav > .active > a:hover, 
+.navbar .nav > .active > a:focus {
+    .box-shadow(none);
+    background: none;
+}
+
+.navbar .nav > li {
+    position: relative;
+    
+    > a {
+        font-size: 16px;
+        font-weight: bold;
+        color: #BBB;
+    }
+    
+    &.active:after {
+    	content:"";
+    	
+    	position: absolute;
+        bottom: 7px;
+        
+        display:block;
+        
+        .border-radius(3px);
+        
+        .size(5px, 70%);
+        
+        margin-left: 15%;
+        
+        background-image: @cherryWood;
+    }
+}

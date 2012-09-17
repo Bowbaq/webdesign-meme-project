@@ -1,6 +1,7 @@
 /* 
  *= require libs/jquery
  *= require plugins
+ *= require transit.min
  */
 
 jQuery(function($) {
@@ -39,8 +40,21 @@ $('.joke-knock-down').click(function() {
     });
 });
 
-$('.first-bubble').click(function() {
-    $(this).next('p').show('slow', function showNext() {
-        $(this).next('p').show('slow', showNext);
-    });
+$('.joke-body').click(function() {
+    var $this = $(this);
+    var height = $this.children().first().outerHeight();
+    
+    $this.toggleClass('click-me dont-click-me');
+    $this.toggleClass('open closed');
+    
+    if ($this.hasClass('closed')) {
+        $this.transition({
+            height: '30px'
+        });
+    } else if ($this.hasClass('open')) {
+        $this.transition({
+            height: height + 'px'
+        }, height + 600);
+    }
 });
+

@@ -34,7 +34,15 @@
     </div>
   
     <div class="container main-container">
-        {% block content %}   
+        {% block content %}
+            <div class="left-container">
+                {% block left %}   
+                {% endblock %}
+            </div>
+            <div class="right-container">
+                {% block right %}   
+                {% endblock %}
+            </div>
         {% endblock %}
     </div>
 {% block javascripts %}
