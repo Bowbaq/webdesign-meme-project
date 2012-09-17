@@ -93,7 +93,7 @@ body {
                     color: red;
                 }
                 
-                &.failure:after {
+                &:after {
                     position: absolute;
                     top: 3px;
                     right: 10px;
@@ -102,27 +102,23 @@ body {
 
                     background-color: white;
                     opacity: 1;
-                    
-                    content: "C'mon, you didn't really think you could vote twice did you ?";
-                    color: darken(@red, 10%);
                     
                     .transition(opacity 1s ease-in);                
                 }
                 
-                &.success:after {
-                    position: absolute;
-                    top: 3px;
-                    right: 10px;
-                    
-                    .size(20px, @jokeWidth);
-
-                    background-color: white;
-                    opacity: 1;
-                    
+                &.failure:after {
+                    content: "C'mon, you didn't really think you could vote twice did you ?";
+                    color: darken(@red, 10%);           
+                }
+                
+                &.success-up:after {
                     content: "You cheeky bugger, you knocked up another !";
-                    color: darken(@green, 10%);
-                    
-                    .transition(opacity 1s ease-in);                
+                    color: darken(@green, 10%);     
+                }
+                
+                &.success-down:after {
+                    content: "And you knocked yet another one down !";
+                    color: darken(@green, 10%);     
                 }
             }
             

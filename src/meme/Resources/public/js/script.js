@@ -20,17 +20,17 @@ $('.joke-knock-up').click(function() {
         var score = $this.next();
         if ("ok" === data.status) {
             score.text(' (+' + data.votes + ')');
-            topbar.addClass('success');
+            topbar.addClass('success-up');
             
             setTimeout(function() {
-                this.topbar.removeClass('success');
-            }.bind(topbar), 3000);
+                this.removeClass('success-up');
+            }.bind(topbar), 4000);
         } else {
             topbar.addClass('failure');
             
             setTimeout(function() {
                 this.removeClass('failure');
-            }.bind(topbar), 3000);
+            }.bind(topbar), 4000);
         }
     });
 });
@@ -47,17 +47,17 @@ $('.joke-knock-down').click(function() {
         var score = $this.next();
         if ("ok" === data.status) {
             score.text(' (-' + data.votes + ')');
-            topbar.addClass('success');
+            topbar.addClass('success-down');
             
             setTimeout(function() {
-                this.topbar.removeClass('success');
-            }.bind(topbar), 3000);
+                this.removeClass('success-down');
+            }.bind(topbar), 4000);
         } else {
             topbar.addClass('failure');
             
             setTimeout(function() {
                 this.removeClass('failure');
-            }.bind(topbar), 3000);
+            }.bind(topbar), 4000);
         }
     });
 });
