@@ -1,0 +1,47 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+
+\documentclass[12pt]{article}
+
+\usepackage{csquotes}
+
+\begin{document}
+
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+
+\title{Meme project -- assignment \#1}%replace X with the appropriate number
+\author{Maxime Bury\\ %replace with your name
+Advanced Web Design} %if necessary, replace with your course title
+
+\maketitle
+
+\paragraph{The concept} % (fold)
+\label{par:the_concept}
+This website will allow users to contribute \enquote{Knock knock jokes} in text form. This meme would be accessible by anyone with a basic understanding of English. 
+
+There is essentially two variable parts in the joke : the \enquote{who} and the \enquote{punchline}. Additionally, some knock knock jokes are comprised of several knock knock jokes, such as in the banana / orange joke. Thus a joke is composed of a \enquote{who} block and then either a \enquote{punchline} block or another knock knock joke.
+% paragraph the_concept (end)
+
+\paragraph{Features} % (fold)
+\label{par:features}
+\begin{itemize}
+    \item Users will be able to submit a joke by filling in a form, adding field dynamically as needed.
+    \item Users will be able to vote jokes up or down (1 vote / joke / ip / 24h)
+    \item The main page will display an infinite list of jokes, with the n best jokes appearing at page load and the rest being pulled from the server as the user scrolls down.
+\end{itemize}
+% paragraph features (end)
+
+\paragraph{Technicalities} % (fold)
+\label{par:technicalities}
+\begin{itemize}
+    \item https://github.com/KnpLabs/KnpRadBundle
+    \item http://airbnb.github.com/infinity/
+    \item H5BP / HTML5 / CSS3 / jQuery
+\end{itemize}
+% paragraph technicalities (end)
+
+\end{document}
